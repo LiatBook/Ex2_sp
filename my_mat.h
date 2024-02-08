@@ -1,6 +1,7 @@
-#include <stdbool.h>
 
-int initialize(int**, int);
-//void FWA(int**, int);
-bool havePath(int**, int, int, int);
-int shortestPath(int**, int, int, int);
+void initialize();
+void FWA();
+int havePath(int,int);
+int shortestPath(int,int);
+
+	
