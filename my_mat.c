@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <math.h>
 #define length 10
 
@@ -8,7 +7,7 @@
 static int fwarun=0;
 int mymat0[10][10];
 int  copymat [10][10] ;
-
+ 
 void initialize()
  {  fwarun=0;
     for(int i=0;i<length;i++)
@@ -19,12 +18,12 @@ void initialize()
       copymat[i][j]=mymat0[i][j];
      }
     }
-
+  
  }
 
-
+ 
  void FWA()
-{
+{ 
 
   for(int k=0;k<10;k++)
    {
@@ -32,7 +31,7 @@ void initialize()
       {
          for (int j= 0; j <10; j++)
          {
-
+            
              if(copymat[i][k]!=0 && copymat[k][j]!=0 && (copymat[i][k]+copymat[k][j]<copymat[i][j] || copymat[i][j]==0))
              {
                if(i!=j)
@@ -40,17 +39,17 @@ void initialize()
                 copymat[i][j]=copymat[i][k]+copymat[k][j];
                }
              }
-
+            
          }
-
+         
       }
    }
-
+   
    fwarun=1;
 
 }
-
-
+ 
+ 
  int havePath(int i,int j)
  {
    if(fwarun!=1)
@@ -59,16 +58,16 @@ void initialize()
    }
     if(i==j)
     {
-     // printf("False");
+     
       return 0;
     }
    else if (copymat[i][j] > 0)
     {
-     //printf("True");
+     
       return 1;
     }
     else{
-    //printf("False");
+    
     return 0;
     }
  }

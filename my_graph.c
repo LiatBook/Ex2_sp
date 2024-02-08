@@ -17,38 +17,36 @@ int main()
   case 'A':
   {
    initialize();
-   break;
+   break; 
   }
   case 'B':
   {
-
+    
     scanf("%d%d",&i,&j);
     printf("%s\n", havePath(i,j)? "True":"False");
-    break;
+    break; 
   }
   case 'C':
   {
-
+    
     scanf("%d%d",&i,&j);
-
+    
     printf("%d\n",shortestPath(i,j));
-
-    break;
+    
+    break; 
   }
 
  default:
     break;
-
+  
 
  }
 
  }
 
  while(choose != 'D');
-
-
+ 
+  
 return 0;
 }
 
-
-	

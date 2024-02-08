@@ -1,32 +1,47 @@
 
 #include <stdio.h>
-#include <math.h>
-#define W 20;
-#define size 5;
-int func()
+#define W 20
+#define size 5
+char items[size];
+int knapSack(int[], int[], int[]);
+int max(int,int);
+int main()
 {
-    char items={'a','b','c','d','e'};
-    float value[size];
-    float weights[size];
+    //char items[size];
+    int value[size];
+    int weights[size];
+    int selected_bool[size];
 
     for(int i=0;i<size;i++)
     {
-        scanf("%f", &weights[i]);
-        scanf("%f", &value[i]);
-
+        scanf("%c",&items[i]);
+        scanf("%d", &weights[i]);
+        scanf("%d", &value[i]);
+        selected_bool[i]=0;
     }
+    knapSack(weights,value,selected_bool);
+    return 0;
+}
+int max(int a,int b)
+{
+    if(a>b)
+    {
+        return a;
+    }
+    return b;
+}
 
 
-    int knapSack (int weights[], int values[], int selected_bool[])
+ int knapSack (int weights[], int values[], int selected_bool[])
   {
-    int mat[size+1][21];
-    for(int i=0,i<=size,i++){
-         for(int j=0,j<=W,j++){
+    int mat[size+1][W];
+    for(int i=0;i<=size;i++){
+         for(int j=0;j<=W;j++){
             if(i==0 || j==0){
                mat[i][j]=0  ;
             }
-            else if(weights(i-1)<=j){
-                mat[i][j]=Math.Max(value[i-1]+mat[i-1][j-weights[i-1]],mat[i-1][j]);
+            else if(weights[i-1]<=j){
+                mat[i][j]=max(values[i-1]+mat[i-1][j-weights[i-1]],mat[i-1][j]);
             }
             else{
                 mat[i][j]=mat[i-1][j];
@@ -44,18 +59,13 @@ int func()
         j--;
     }
 
-    printf("Maximun profit: %d", mat[size][W]);
+    printf("Maximun profit: %d\n", mat[size][W]);
      printf("Selected items:"); 
-    for(int i=0,i<=size;i++){
+    for(int i=0;i<=size;i++){
     if(selected_bool[i]==1)
         printf(" %c",items[i]);
     }
-
-       
-
+  return 0;
   }
 
     
-    return 0;
-}
-	
